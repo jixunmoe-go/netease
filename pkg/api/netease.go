@@ -78,9 +78,6 @@ func (n *NetEase) request(action, path, data string) (string, error) {
 
 	err = resp.Body.Close()
 
-	fmt.Printf("result (%d bytes):", len(result))
-	fmt.Println(string(result))
-
 	return string(result), err
 }
 
@@ -98,9 +95,6 @@ func encodeParam(method, url string, params interface{}) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
-	fmt.Println("Constructed payload:")
-	fmt.Println(string(data))
 
 	return "eparams=" + crypto.EncryptToString(data), nil
 }
@@ -129,9 +123,6 @@ func (n *NetEase) Song(ids ...uint) (*types.SongResp, error) {
 		return nil, err
 	}
 
-	fmt.Println("param:")
-	fmt.Println(param)
-
 	var result types.SongResp
 	resp, err := n.linuxRequest(param)
 	if err != nil {
@@ -154,9 +145,6 @@ func (n *NetEase) Playlist(id uint) (*types.PlayListResp, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	fmt.Println("param:")
-	fmt.Println(param)
 
 	var result types.PlayListResp
 	resp, err := n.linuxRequest(param)
