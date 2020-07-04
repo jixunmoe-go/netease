@@ -9,22 +9,23 @@
 
 直接引入即可 (应该)；如果需要手动安装，执行 `go get -u github.com/JixunMoe/netease-api-go`。
 
-```go
+```
 package main
 
 import (
-    "fmt"
-    "github.com/JixunMoe/netease-api-go/pkg/api"
+	"fmt"
+	NetEaseAPI "github.com/JixunMoe/netease-api-go/pkg/api"
 )
 
-func main ()  {
-    netease := api.New()
-    resp, err := netease.Song(5308028)
-    if err == nil && resp != nil {
-        fmt.Println(resp.Songs[0].Name)
-    } else {
-        fmt.Println("error")
-    }
+func main() {
+	api := NetEaseAPI.New()
+	resp, err := api.Song(37460604)
+	if err == nil && resp != nil {
+		song := resp.Songs[0]
+		fmt.Printf("Song: %s (album: %s), singer: %s\n", song.Name, song.Album.Name, song.Artists[0].Name)
+	} else {
+		fmt.Printf("Could not fetch song info: %s", err)
+	}
 }
 ```
 
