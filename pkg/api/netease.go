@@ -9,7 +9,6 @@ import (
 	"github.com/JixunMoe/netease-api-go/pkg/types"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"strings"
 )
 
@@ -64,7 +63,6 @@ func (n *NetEase) request(action, path, data string) (string, error) {
 		req.Header.Set("Content-Length", string(len(data)))
 	}
 
-	_ = os.Setenv("HTTP_PROXY", "http://127.0.0.1:8888")
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
