@@ -33,5 +33,6 @@ func main() {
 
 本项目参考了以下仓库里的代码与内容：
 
-* [surmon-china/simple-netease-cloud-music](https://github.com/surmon-china/simple-netease-cloud-music)
 * [FakerGit/go-tools](https://github.com/FakerGit/go-tools)
+* [surmon-china/simple-netease-cloud-music](https://github.com/surmon-china/simple-netease-cloud-music)
+* [picone/MusicUnionSearch](https://github.com/picone/MusicUnionSearch)
