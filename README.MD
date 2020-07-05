@@ -14,7 +14,7 @@ package main
 
 import (
 	"fmt"
-	NetEaseAPI "github.com/JixunMoe/netease-api-go/pkg/api"
+	"github.com/JixunMoe/netease-api-go/NetEaseAPI"
 )
 
 func main() {
