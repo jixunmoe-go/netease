@@ -1,35 +1,5 @@
 package types
 
-type UserInfo struct {
-	DefaultAvatar      bool        `json:"defaultAvatar"`
-	Province           int         `json:"province"`
-	AuthStatus         int         `json:"authStatus"`
-	Followed           bool        `json:"followed"`
-	AvatarURL          string      `json:"avatarUrl"`
-	AccountStatus      int         `json:"accountStatus"`
-	Gender             int         `json:"gender"`
-	City               int         `json:"city"`
-	Birthday           int64       `json:"birthday"`
-	UserID             int         `json:"userId"`
-	UserType           int         `json:"userType"`
-	Nickname           string      `json:"nickname"`
-	Signature          string      `json:"signature"`
-	Description        string      `json:"description"`
-	DetailDescription  string      `json:"detailDescription"`
-	AvatarImgID        int64       `json:"avatarImgId"`
-	BackgroundImgID    int64       `json:"backgroundImgId"`
-	BackgroundURL      string      `json:"backgroundUrl"`
-	Authority          int         `json:"authority"`
-	Mutual             bool        `json:"mutual"`
-	ExpertTags         interface{} `json:"expertTags"`
-	Experts            interface{} `json:"experts"`
-	DjStatus           int         `json:"djStatus"`
-	VipType            int         `json:"vipType"`
-	RemarkName         interface{} `json:"remarkName"`
-	AvatarImgIDStr     string      `json:"avatarImgIdStr"`
-	BackgroundImgIDStr string      `json:"backgroundImgIdStr"`
-}
-
 type TrackID struct {
 	ID  int         `json:"id"`
 	V   int         `json:"v"`
@@ -37,10 +7,28 @@ type TrackID struct {
 	Alg interface{} `json:"alg"`
 }
 
+type BasicPlaylistInfo struct {
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	CoverImgURL string `json:"coverImgUrl"`
+
+	Creator BasicPlaylistCreatorInfo `json:"creator"`
+
+	Subscribed   bool        `json:"subscribed"`
+	TrackCount   int         `json:"trackCount"`
+	UserID       int         `json:"userId"`
+	PlayCount    int         `json:"playCount"`
+	BookCount    int         `json:"bookCount"`
+	OfficialTags interface{} `json:"officialTags,omitempty"`
+	Description  string      `json:"description"`
+	HighQuality  bool        `json:"highQuality"`
+}
+
 type Playlist struct {
+	BasicPlaylistInfo
+	Creator UserInfo `json:"creator"`
+
 	Subscribers           []interface{} `json:"subscribers"`
-	Subscribed            bool          `json:"subscribed"`
-	Creator               UserInfo      `json:"creator"`
 	Tracks                []SongInfo    `json:"tracks"`
 	TrackIds              []TrackID     `json:"trackIds"`
 	UpdateFrequency       interface{}   `json:"updateFrequency"`
@@ -54,25 +42,18 @@ type Playlist struct {
 	TrackNumberUpdateTime int64         `json:"trackNumberUpdateTime"`
 	SubscribedCount       int           `json:"subscribedCount"`
 	CloudTrackCount       int           `json:"cloudTrackCount"`
-	UserID                int           `json:"userId"`
 	CreateTime            int64         `json:"createTime"`
-	HighQuality           bool          `json:"highQuality"`
 	SpecialType           int           `json:"specialType"`
 	UpdateTime            int64         `json:"updateTime"`
 	CoverImgID            int64         `json:"coverImgId"`
 	NewImported           bool          `json:"newImported"`
 	CommentThreadID       string        `json:"commentThreadId"`
-	CoverImgURL           string        `json:"coverImgUrl"`
 	Privacy               int           `json:"privacy"`
 	TrackUpdateTime       int64         `json:"trackUpdateTime"`
 	TrackCount            int           `json:"trackCount"`
-	PlayCount             int           `json:"playCount"`
 	Ordered               bool          `json:"ordered"`
 	Tags                  []interface{} `json:"tags"`
-	Description           interface{}   `json:"description"`
 	Status                int           `json:"status"`
-	Name                  string        `json:"name"`
-	ID                    int           `json:"id"`
 	ShareCount            int           `json:"shareCount"`
 	CommentCount          int           `json:"commentCount"`
 }

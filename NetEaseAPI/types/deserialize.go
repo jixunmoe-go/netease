@@ -37,3 +37,9 @@ func (r *LyricResp) Deserialize(resp string) error {
 	r.Response = resp
 	return err
 }
+
+func (r *SearchResp) Deserialize(resp string) error {
+	err := json.Unmarshal([]byte(resp), r)
+	r.Response = resp
+	return err
+}

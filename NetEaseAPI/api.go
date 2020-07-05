@@ -3,6 +3,7 @@ package NetEaseAPI
 import (
 	"errors"
 	"fmt"
+	"github.com/JixunMoe/netease-api-go/NetEaseAPI/search"
 	"github.com/JixunMoe/netease-api-go/NetEaseAPI/types"
 	"strings"
 )
@@ -97,6 +98,25 @@ func (n *NetEase) Lyric(id uint64) (*types.LyricResp, error) {
 			"lv": -1,
 			"kv": -1,
 			"tv": -1,
+		},
+	)
+	return &result, err
+}
+
+// Search for a song.
+// keyword: the search phrase
+// category: search category
+// offset: the page to search (starting from 0)
+// limit: the number of items per page
+func (n *NetEase) Search(keyword string, category search.Type, offset, limit uint) (*types.SearchResp, error) {
+	var result types.SearchResp
+	err := n.Client.Request(n, &result, "POST", "/cloudsearch/pc",
+		map[string]interface{}{
+			"s":      keyword,
+			"type":   category,
+			"limit":  limit,
+			"total":  true,
+			"offset": offset,
 		},
 	)
 	return &result, err

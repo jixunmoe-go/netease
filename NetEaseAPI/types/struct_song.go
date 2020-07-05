@@ -62,6 +62,11 @@ type SongInfo struct {
 	UnknownMst           int           `json:"mst"`
 	UnknownCp            int           `json:"cp"`
 	PublishTime          int64         `json:"publishTime"`
+
+	// Privilege is only available when accessed from "Lyric Search"
+	Privilege PrivilegeInfo `json:"privilege,omitdefault"`
+	// Lyrics is only available when accessed from "Lyric Search"
+	Lyrics []string `json:"lyrics,omitdefault"`
 }
 
 type ChargeInfo struct {

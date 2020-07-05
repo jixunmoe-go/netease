@@ -1,15 +1,12 @@
 package types
 
-type ArtistInfo struct {
+type BasicArtistInfo struct {
 	ID int `json:"id"`
 
 	// Original Name
 	Name string `json:"name"`
 	// Localised name (Chinese)
 	LocalisedName string `json:"trans"`
-
-	// A brief description of this artist.
-	Description string `json:"briefDesc"`
 
 	Img1V1ID    int64  `json:"img1v1Id"`
 	Img1V1IDStr string `json:"img1v1Id_str"`
@@ -19,17 +16,25 @@ type ArtistInfo struct {
 	PicIDStr string `json:"picId_str"`
 	PicURL   string `json:"picUrl"`
 
-	TopicPerson int           `json:"topicPerson"`
-	Alias       []interface{} `json:"alias"`
-
-	// Number of songs
-	SongCount int `json:"musicSize"`
 	// Number of albums
 	AlbumCount int `json:"albumSize"`
 	// Number of MV
 	MVCount int `json:"mvSize"`
 
 	Followed bool `json:"followed"`
+}
+
+type ArtistInfo struct {
+	BasicArtistInfo
+
+	// A brief description of this artist.
+	Description string `json:"briefDesc"`
+
+	TopicPerson int           `json:"topicPerson"`
+	Alias       []interface{} `json:"alias"`
+
+	// Number of songs
+	SongCount int `json:"musicSize"`
 
 	PublishTime uint64 `json:"publishTime"`
 	AccountID   uint64 `json:"accountId"`

@@ -4,6 +4,7 @@ package NetEaseAPI
 
 import (
 	"fmt"
+	"github.com/JixunMoe/netease-api-go/NetEaseAPI/search"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -60,4 +61,13 @@ func TestLyric_Linux(t *testing.T) {
 	assert.Nil(t, err)
 	assert.NotNil(t, resp)
 	assert.Equal(t, byte('['), resp.Lyrics.LRC[0])
+}
+
+func TestSearch_Linux(t *testing.T) {
+	api := New()
+	resp, err := api.Search("蔡徐坤", search.Artist, 0, 10)
+	assert.Nil(t, err)
+	assert.NotNil(t, resp)
+	assert.Greater(t, resp.Result.ArtistCount, uint(0), "Should be able to find at least one artist")
+	fmt.Printf("First artist: %s\n", resp.Result.Artists[0].Name)
 }
