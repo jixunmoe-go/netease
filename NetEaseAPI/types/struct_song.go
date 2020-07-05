@@ -22,7 +22,7 @@ type ResourceInfo struct {
 	UnknownVd float64 `json:"vd"`
 }
 
-type BasicSongInfo struct {
+type SongInfo struct {
 	ID             int      `json:"id"`
 	Name           string   `json:"name"`
 	TranslatedName []string `json:"tns,omitempty"`
@@ -93,7 +93,7 @@ type PrivilegeInfo struct {
 }
 
 type SongResp struct {
-	Songs      []BasicSongInfo `json:"songs"`
+	Songs      []SongInfo      `json:"songs"`
 	Privileges []PrivilegeInfo `json:"privileges"`
 	Code       int             `json:"code"`
 	Response   string          `json:"-"`

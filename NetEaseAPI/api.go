@@ -1,7 +1,6 @@
 package NetEaseAPI
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"github.com/JixunMoe/netease-api-go/NetEaseAPI/types"
@@ -20,48 +19,47 @@ func (n *NetEase) Song(ids ...uint64) (*types.SongResp, error) {
 	}
 	sb.WriteByte(']')
 
-	param, err := encodeParam(
-		"POST",
-		"http://music.163.com/api/v3/song/detail",
+	var result types.SongResp
+	err := n.Client.Request(n, &result, "POST", "/v3/song/detail",
 		map[string]interface{}{
 			"c": sb.String(),
 		},
 	)
 
-	if err != nil {
-		return nil, err
-	}
+	return &result, err
+}
 
-	var result types.SongResp
-	resp, err := n.linuxRequest(param)
-	if err != nil {
-		return nil, err
-	}
-	err = json.Unmarshal([]byte(resp), &result)
-	result.Response = resp
+// SongURL requests for the MP3 url of a list of song ids.
+// bitrate can be one of the following: 128000, 192000, 320000.
+// Other undocumented bitrate *might* be available (999000 = flac format?).
+func (n *NetEase) SongURL(bitrate int, ids ...uint64) (*types.SongURLResp, error) {
+	var result types.SongURLResp
+	err := n.Client.Request(n, &result, "POST", "/song/enhance/player/url",
+		map[string]interface{}{
+			"ids": ids,
+			"br":  bitrate,
+		},
+	)
 	return &result, err
 }
 
 func (n *NetEase) Playlist(id uint64) (*types.PlayListResp, error) {
-	param, err := encodeParam(
-		"POST",
-		"http://music.163.com/api/v3/playlist/detail",
-		map[string]uint64{
+	var result types.PlayListResp
+	err := n.Client.Request(n, &result, "POST", "/v3/playlist/detail",
+		map[string]interface{}{
 			"id": id,
 			"n":  1000,
 		},
 	)
+	return &result, err
+}
 
-	if err != nil {
-		return nil, err
-	}
-
-	var result types.PlayListResp
-	resp, err := n.linuxRequest(param)
-	if err != nil {
-		return nil, err
-	}
-	err = json.Unmarshal([]byte(resp), &result)
-	result.Response = resp
+func (n *NetEase) Album(id uint64) (*types.AlbumResp, error) {
+	var result types.AlbumResp
+	err := n.Client.Request(n, &result, "POST", fmt.Sprintf("/v1/album/%d", id),
+		map[string]interface{}{
+			"id": id,
+		},
+	)
 	return &result, err
 }

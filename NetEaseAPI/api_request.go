@@ -1,15 +1,17 @@
 package NetEaseAPI
 
 import (
-	"encoding/json"
 	"fmt"
-	"github.com/JixunMoe/netease-api-go/NetEaseAPI/crypto"
 	"io/ioutil"
 	"net/http"
 	"strings"
 )
 
-func (n *NetEase) request(action, path, data string) (string, error) {
+type ClientExtension interface {
+	ExtendRequest(n *NetEase, req *http.Request)
+}
+
+func (n *NetEase) Request(ext ClientExtension, action, path, data string) ([]byte, error) {
 	isPost := action == "POST"
 	url := fmt.Sprintf("%s%s", n.BaseURL, path)
 
@@ -20,48 +22,38 @@ func (n *NetEase) request(action, path, data string) (string, error) {
 
 	req, err := http.NewRequest(action, url, bodyReader)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
-	req.Header.Set("Cookie", n.Cookie)
 	req.Header.Set("User-Agent", n.UserAgent)
 	req.Header.Set("X-Real-IP", n.FakeIP)
-	req.Header.Set("Referer", "https://music.163.com/")
+	req.Header.Set("Referer", n.BaseURL)
+	req.Header.Set("Accept-language", "zh-cn")
+	req.Header.Set("Accept", "*/*")
+	req.Header.Set("Origin", "orpheus://orpheus")
+	req.Header.Set("Cookie", n.Cookie)
 
 	if isPost {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 		req.Header.Set("Content-Length", string(len(data)))
 	}
 
+	// Last chance to change anything...!
+	if ext != nil {
+		ext.ExtendRequest(n, req)
+	}
+
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
 	result, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
 	err = resp.Body.Close()
 
-	return string(result), err
-}
-
-func (n *NetEase) linuxRequest(param string) (string, error) {
-	return n.request("POST", "/api/linux/forward", param)
-}
-
-func encodeParam(method, url string, params interface{}) (string, error) {
-	object := map[string]interface{}{
-		"method": method,
-		"params": params,
-		"url":    url,
-	}
-	data, err := json.Marshal(object)
-	if err != nil {
-		return "", err
-	}
-
-	return "eparams=" + crypto.EncryptToString(data), nil
+	return result, err
 }
