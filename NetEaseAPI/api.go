@@ -87,3 +87,17 @@ func (n *NetEase) Artist(id, limit uint64) (*types.ArtistResp, error) {
 	)
 	return &result, err
 }
+
+func (n *NetEase) Lyric(id uint64) (*types.LyricResp, error) {
+	var result types.LyricResp
+	err := n.Client.Request(n, &result, "POST", "/song/lyric",
+		map[string]interface{}{
+			"id": id,
+			"os": "linux",
+			"lv": -1,
+			"kv": -1,
+			"tv": -1,
+		},
+	)
+	return &result, err
+}

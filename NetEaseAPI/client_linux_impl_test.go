@@ -53,3 +53,11 @@ func TestArtist_Linux(t *testing.T) {
 	assert.NotNil(t, resp)
 	assert.Equal(t, "Ed Sheeran", resp.Artist.Name, "The artist should be Ed Sheeran")
 }
+
+func TestLyric_Linux(t *testing.T) {
+	api := New()
+	resp, err := api.Lyric(443277477)
+	assert.Nil(t, err)
+	assert.NotNil(t, resp)
+	assert.Equal(t, byte('['), resp.Lyrics.LRC[0])
+}
