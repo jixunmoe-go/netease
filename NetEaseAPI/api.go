@@ -72,3 +72,18 @@ func (n *NetEase) Album(id uint64) (*types.AlbumResp, error) {
 	)
 	return &result, err
 }
+
+// Artist can get information about a specific artist.
+// limit: the number of "hot" songs to return.
+// a reasonable limit would be 50.
+func (n *NetEase) Artist(id, limit uint64) (*types.ArtistResp, error) {
+	var result types.ArtistResp
+	err := n.Client.Request(n, &result, "POST", fmt.Sprintf("/v1/artist/%d", id),
+		map[string]interface{}{
+			"id":  id,
+			"ext": true,
+			"top": limit,
+		},
+	)
+	return &result, err
+}
