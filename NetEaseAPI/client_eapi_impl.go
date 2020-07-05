@@ -20,7 +20,6 @@ func (c *EAPIClientImpl) Request(n *NetEase, result APIResp, method, path string
 	object["header"] = util.ParseCookie(n.Cookie)
 
 	data, err := json.Marshal(params)
-	fmt.Println(string(data))
 
 	if err != nil {
 		return err
