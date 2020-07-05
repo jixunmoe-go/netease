@@ -51,6 +51,5 @@ func TestArtist_Linux(t *testing.T) {
 	resp, err := api.Artist(33184, 50)
 	assert.Nil(t, err)
 	assert.NotNil(t, resp)
-	resp.A
-	fmt.Println(resp.Response)
+	assert.Equal(t, "Ed Sheeran", resp.Artist.Name, "The artist should be Ed Sheeran")
 }
