@@ -1,0 +1,119 @@
+{
+  "songs": [
+    {
+      "name": "梦中的婚礼",
+      "id": 34341360,
+      "pst": 0,
+      "t": 0,
+      "ar": [
+        {
+          "id": 41937,
+          "name": "Richard Clayderman",
+          "tns": [],
+          "alias": []
+        }
+      ],
+      "alia": [],
+      "pop": 100.0,
+      "st": 0,
+      "rt": null,
+      "fee": 0,
+      "v": 116,
+      "crbt": null,
+      "cf": "",
+      "al": {
+        "id": 3280326,
+        "name": "Richard Clayderman",
+        "picUrl": "http://p4.music.126.net/dMUS79TnNOnzd4p6MV_CGw==/7993449536056577.jpg",
+        "tns": [],
+        "pic": 7993449536056577
+      },
+      "dt": 163000,
+      "h": {
+        "br": 320000,
+        "fid": 0,
+        "size": 6522296,
+        "vd": 8591.0
+      },
+      "m": {
+        "br": 192000,
+        "fid": 0,
+        "size": 3913394,
+        "vd": 10356.0
+      },
+      "l": {
+        "br": 128000,
+        "fid": 0,
+        "size": 2608944,
+        "vd": 13170.0
+      },
+      "a": null,
+      "cd": "1",
+      "no": 10,
+      "rtUrl": null,
+      "ftype": 0,
+      "rtUrls": [],
+      "djId": 0,
+      "copyright": 0,
+      "s_id": 0,
+      "mark": 393216,
+      "originCoverType": 0,
+      "single": 0,
+      "noCopyrightRcmd": null,
+      "mv": 0,
+      "mst": 9,
+      "cp": 0,
+      "rtype": 0,
+      "rurl": null,
+      "publishTime": 950716800007
+    }
+  ],
+  "privileges": [
+    {
+      "id": 34341360,
+      "fee": 0,
+      "payed": 0,
+      "st": 0,
+      "pl": 320000,
+      "dl": 999000,
+      "sp": 7,
+      "cp": 1,
+      "subp": 1,
+      "cs": false,
+      "maxbr": 999000,
+      "fl": 320000,
+      "toast": false,
+      "flag": 0,
+      "preSell": false,
+      "playMaxbr": 999000,
+      "downloadMaxbr": 999000,
+      "chargeInfoList": [
+        {
+          "rate": 128000,
+          "chargeUrl": null,
+          "chargeMessage": null,
+          "chargeType": 0
+        },
+        {
+          "rate": 192000,
+          "chargeUrl": null,
+          "chargeMessage": null,
+          "chargeType": 0
+        },
+        {
+          "rate": 320000,
+          "chargeUrl": null,
+          "chargeMessage": null,
+          "chargeType": 0
+        },
+        {
+          "rate": 999000,
+          "chargeUrl": null,
+          "chargeMessage": null,
+          "chargeType": 1
+        }
+      ]
+    }
+  ],
+  "code": 200
+}

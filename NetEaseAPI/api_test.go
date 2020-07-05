@@ -1,22 +1,22 @@
-package api
+// +build integration
+
+package NetEaseAPI
 
 import (
 	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestSongInfo(t *testing.T) {
-	if testing.Short() {
-		t.Skip("skipping song test in this mode.")
-	}
-
 	api := New()
-	resp, err := api.Song(5308028, 5308029)
+	resp, err := api.Song(38019092, 5308028)
 	if err == nil && resp != nil {
-		fmt.Println("First song (name)")
-		fmt.Println(resp.Songs[0].Name)
-		fmt.Println("Second song (name, translation)")
-		fmt.Printf("%s, %s\n", resp.Songs[1].Name, resp.Songs[1].TranslatedName[0])
+		if len(resp.Songs) != 2 {
+			t.Error("Does not receive data for 2 songs")
+		}
+		assert.Equal(t, "Lifeline", resp.Songs[0].Name, "First song should be 'Life Line'")
+		assert.Equal(t, "My Soul", resp.Songs[1].Name, "Second song should be 'My Soul'")
 	} else {
 		t.Error(err)
 	}

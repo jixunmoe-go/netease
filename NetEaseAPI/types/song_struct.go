@@ -96,4 +96,5 @@ type SongResp struct {
 	Songs      []BasicSongInfo `json:"songs"`
 	Privileges []PrivilegeInfo `json:"privileges"`
 	Code       int             `json:"code"`
+	Response   string          `json:"-"`
 }

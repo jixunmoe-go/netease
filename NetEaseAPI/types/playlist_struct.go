@@ -83,4 +83,5 @@ type PlayListResp struct {
 	Playlist      Playlist        `json:"playlist"`
 	Urls          interface{}     `json:"urls"`
 	Privileges    []PrivilegeInfo `json:"privileges"`
+	Response      string          `json:"-"`
 }
