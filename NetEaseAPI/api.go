@@ -7,22 +7,31 @@ import (
 	"strings"
 )
 
+func makeSongID(id uint64) string {
+	return fmt.Sprintf("{id:%d}", id)
+}
+
+func makeSongIDs(ids []uint64) string {
+	sb := strings.Builder{}
+	sb.WriteByte('[')
+	sb.WriteString(makeSongID(ids[0]))
+	for i := 1; i < len(ids); i++ {
+		sb.WriteString(makeSongID(ids[i]))
+		sb.WriteByte(',')
+	}
+	sb.WriteByte(']')
+	return sb.String()
+}
+
 func (n *NetEase) Song(ids ...uint64) (*types.SongResp, error) {
 	if len(ids) < 1 {
 		return nil, errors.New("NetEase::Song: no id supplied")
 	}
 
-	sb := strings.Builder{}
-	sb.WriteString(fmt.Sprintf("[{id:%d}", ids[0]))
-	for i := 1; i < len(ids); i++ {
-		sb.WriteString(fmt.Sprintf(",{id:%d}", ids[i]))
-	}
-	sb.WriteByte(']')
-
 	var result types.SongResp
 	err := n.Client.Request(n, &result, "POST", "/v3/song/detail",
 		map[string]interface{}{
-			"c": sb.String(),
+			"c": makeSongIDs(ids),
 		},
 	)
 

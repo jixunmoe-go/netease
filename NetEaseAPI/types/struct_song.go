@@ -40,9 +40,9 @@ type SongInfo struct {
 	UnknownCf            string        `json:"cf"`
 	Album                Album         `json:"al"`
 	UnknownDt            int           `json:"dt"`
-	HighQuality          ResourceInfo  `json:"h"`
-	MediumQuality        ResourceInfo  `json:"m"`
-	LowQuality           ResourceInfo  `json:"l"`
+	HighQuality          ResourceInfo  `json:"h,omitempty"`
+	MediumQuality        ResourceInfo  `json:"m,omitempty"`
+	LowQuality           ResourceInfo  `json:"l,omitempty"`
 	UnknownA             interface{}   `json:"a"`
 	UnknownCd            string        `json:"cd"`
 	UnknownNo            int           `json:"no"`
