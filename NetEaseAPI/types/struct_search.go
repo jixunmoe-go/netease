@@ -32,18 +32,18 @@ type VideoSearchResult struct {
 type LyricSearchResult BasicSongSearchResult
 
 type PlaylistSearchResult struct {
-	Playlists     BasicPlaylistInfo `json:"playlists,omitempty"`
-	PlaylistCount uint              `json:"playlistCount,omitempty"`
+	Playlists     []BasicPlaylistInfo `json:"playlists,omitempty"`
+	PlaylistCount uint                `json:"playlistCount,omitempty"`
 }
 
 type RadioSearchResult struct {
-	Radios      BasicRadioInfo `json:"djRadios,omitempty"`
-	RadiosCount uint           `json:"djRadiosCount,omitempty"`
+	Radios      []BasicRadioInfo `json:"djRadios,omitempty"`
+	RadiosCount uint             `json:"djRadiosCount,omitempty"`
 }
 
 type UserSearchResult struct {
-	Users      ExtendedUserInfoForSearch `json:"userprofiles"`
-	UsersCount uint                      `json:"userprofileCount"`
+	Users      []ExtendedUserInfoForSearch `json:"userprofiles"`
+	UsersCount uint                        `json:"userprofileCount"`
 }
 
 type SearchResultUnion struct {
