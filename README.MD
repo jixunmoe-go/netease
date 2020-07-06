@@ -30,7 +30,7 @@ func main() {
 }
 ```
 
-[Go Playground](https://play.golang.org/p/HZxVi1G01OD)
+[在 repl.it 试试](https://repl.it/@JixunMoe/netease-api-demo)
 
 ## 致谢
 
