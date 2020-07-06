@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/JixunMoe/netease-api-go/NetEaseAPI/crypto"
-	"github.com/JixunMoe/netease-api-go/util"
+	"github.com/JixunMoe/netease-api-go/NetEaseAPI/util"
 	"net/http"
 )
 
