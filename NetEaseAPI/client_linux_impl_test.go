@@ -47,6 +47,15 @@ func TestSongURL_Linux(t *testing.T) {
 	assert.Equal(t, 5308028, resp.Data[1].ID)
 }
 
+func TestSongURLv1_Linux(t *testing.T) {
+	api := New()
+	resp, err := api.SongURLv1("exhigh", "mp3", 38019092, 5308028)
+	assert.Nil(t, err)
+	assert.NotNil(t, resp)
+	assert.Equal(t, 38019092, resp.Data[0].ID)
+	assert.Equal(t, 5308028, resp.Data[1].ID)
+}
+
 func TestArtist_Linux(t *testing.T) {
 	api := New()
 	resp, err := api.Artist(33184, 50)

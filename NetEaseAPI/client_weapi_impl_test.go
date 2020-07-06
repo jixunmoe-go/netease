@@ -54,7 +54,7 @@ func TestSongURL_WEAPI(t *testing.T) {
 func TestSongURLv1_WEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
-	resp, err := api.SongURLV1("standard", "aac", 38019092, 5308028)
+	resp, err := api.SongURLv1("standard", "aac", 38019092, 5308028)
 	assert.Nil(t, err)
 	assert.NotNil(t, resp)
 

@@ -55,7 +55,7 @@ func decryptAESECB(data, key []byte) []byte {
 	return PKCS7UnPadding(decrypted)
 }
 
-func Encrypt(input, key []byte) string {
+func EncryptToString(input, key []byte) string {
 	encrypted := encryptAESECB(input, key)
 	return strings.ToUpper(hex.EncodeToString(encrypted))
 }
