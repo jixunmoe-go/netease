@@ -17,8 +17,8 @@ func makeSongIDs(ids []uint64) string {
 	sb.WriteByte('[')
 	sb.WriteString(makeSongID(ids[0]))
 	for i := 1; i < len(ids); i++ {
-		sb.WriteString(makeSongID(ids[i]))
 		sb.WriteByte(',')
+		sb.WriteString(makeSongID(ids[i]))
 	}
 	sb.WriteByte(']')
 	return sb.String()
