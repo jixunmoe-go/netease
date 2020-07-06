@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Go Version](https://img.shields.io/github/go-mod/go-version/jixunmoe-go/netease)
-[![GoDoc](https://godoc.org/github.com/jixunmoe-go/netease?status.svg)](https://pkg.go.dev/github.com/jixunmoe-go/netease?tab=doc)
+[![GoDoc](https://godoc.org/github.com/jixunmoe-go/netease?status.svg)](https://godoc.org/github.com/jixunmoe-go/netease)
 
 一个很简单的 POC package。
 
