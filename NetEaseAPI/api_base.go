@@ -46,3 +46,7 @@ func (n *NetEase) UseEAPIClient() {
 func (n *NetEase) UseLinuxClient() {
 	n.Client = &LinuxClientImpl{}
 }
+
+func (n *NetEase) UseWEAPIClient() {
+	n.Client = &WEAPIClientImpl{}
+}

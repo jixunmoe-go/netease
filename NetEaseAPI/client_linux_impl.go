@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/JixunMoe/netease-api-go/NetEaseAPI/crypto"
+	"net/http"
 )
 
 type LinuxClientImpl struct{}
@@ -21,10 +22,15 @@ func (c *LinuxClientImpl) Request(n *NetEase, result APIResp, method, path strin
 
 	payload := "eparams=" + crypto.LinuxClientEncrypt(data)
 
-	resp, err := n.Request(nil, "POST", "/api/linux/forward", payload)
+	resp, err := n.Request(c, "POST", "/api/linux/forward", payload)
 	if err != nil {
 		return err
 	}
 
 	return result.Deserialize(string(resp))
+}
+
+func (c *LinuxClientImpl) ExtendRequest(n *NetEase, req *http.Request) {
+	req.Header.Set("Cookie", n.Cookie)
+	req.Header.Set("Origin", "orpheus://orpheus")
 }

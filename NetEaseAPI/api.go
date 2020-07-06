@@ -53,6 +53,21 @@ func (n *NetEase) SongURL(bitrate int, ids ...uint64) (*types.SongURLResp, error
 	return &result, err
 }
 
+// SongURL requests for the url of a list of song ids.
+// level: "standard"
+// encodeType: "aac"
+func (n *NetEase) SongURLV1(level, encodeType string, ids ...uint64) (*types.SongURLResp, error) {
+	var result types.SongURLResp
+	err := n.Client.Request(n, &result, "POST", "/song/enhance/player/url/v1",
+		map[string]interface{}{
+			"ids":        ids,
+			"level":      level,
+			"encodeType": encodeType,
+		},
+	)
+	return &result, err
+}
+
 func (n *NetEase) Playlist(id uint64) (*types.PlayListResp, error) {
 	var result types.PlayListResp
 	err := n.Client.Request(n, &result, "POST", "/v3/playlist/detail",

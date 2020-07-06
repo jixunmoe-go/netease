@@ -36,4 +36,5 @@ func main() {
 * [FakerGit/go-tools](https://github.com/FakerGit/go-tools)
 * [nondanee/UnblockNeteaseMusic](https://github.com/nondanee/UnblockNeteaseMusic)
 * [picone/MusicUnionSearch](https://github.com/picone/MusicUnionSearch)
+* [sqaiyan/netmusic-node](https://github.com/sqaiyan/netmusic-node)
 * [surmon-china/simple-netease-cloud-music](https://github.com/surmon-china/simple-netease-cloud-music)

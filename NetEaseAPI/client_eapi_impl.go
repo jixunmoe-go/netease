@@ -46,6 +46,5 @@ func (c *EAPIClientImpl) ExtendRequest(n *NetEase, req *http.Request) {
 	// force reference
 	_ = n
 
-	// Cookie not needed here :/
-	req.Header.Del("Cookie")
+	req.Header.Set("Origin", "orpheus://orpheus")
 }

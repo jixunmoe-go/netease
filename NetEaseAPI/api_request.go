@@ -29,8 +29,6 @@ func (n *NetEase) Request(ext ClientExtension, action, path, data string) ([]byt
 	req.Header.Set("Referer", n.BaseURL)
 	req.Header.Set("Accept-language", "zh-cn")
 	req.Header.Set("Accept", "*/*")
-	req.Header.Set("Origin", "orpheus://orpheus")
-	req.Header.Set("Cookie", n.Cookie)
 
 	if isPost {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
