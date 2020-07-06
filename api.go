@@ -1,10 +1,10 @@
-package main
+package NetEaseAPI
 
 import (
 	"errors"
 	"fmt"
-	"github.com/JixunMoe/netease-api-go/search"
-	"github.com/JixunMoe/netease-api-go/types"
+	"github.com/JixunMoe-go/NetEaseAPI/search"
+	"github.com/JixunMoe-go/NetEaseAPI/types"
 	"strings"
 )
 

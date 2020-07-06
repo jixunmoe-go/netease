@@ -8,7 +8,7 @@
 
 ## 使用
 
-直接引入即可 (应该)；如果需要手动安装，执行 `go get -u github.com/JixunMoe/netease-api-go`。
+直接引入即可 (应该)；如果需要手动安装，执行 `go get -u github.com/JixunMoe-go/NetEaseAPI`。
 
 ```
 package main
