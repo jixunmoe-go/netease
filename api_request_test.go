@@ -1,4 +1,4 @@
-package NetEaseAPI
+package netease
 
 import (
 	"github.com/stretchr/testify/assert"

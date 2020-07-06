@@ -1,6 +1,6 @@
 // +build integration
 
-package NetEaseAPI
+package netease
 
 import (
 	"fmt"

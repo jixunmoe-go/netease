@@ -19,7 +19,7 @@ import (
 )
 
 func main() {
-	api := NetEaseAPI.New()
+	api := netease.New()
 	resp, err := api.Song(37460604)
 	if err == nil && resp != nil {
 		song := resp.Songs[0]

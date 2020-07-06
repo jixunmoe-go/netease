@@ -1,4 +1,4 @@
-package NetEaseAPI
+package netease
 
 const defaultEndpoint = "https://music.163.com"
 const defaultTunnelEndpoint = "http://music.163.com"

@@ -1,4 +1,4 @@
-package NetEaseAPI
+package netease
 
 import "github.com/jixunmoe-go/netease/util/ip"
 

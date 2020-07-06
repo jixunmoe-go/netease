@@ -1,4 +1,4 @@
-package NetEaseAPI
+package netease
 
 import (
 	"fmt"
