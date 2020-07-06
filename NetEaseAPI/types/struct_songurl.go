@@ -1,7 +1,8 @@
 package types
 
-type FreeTrialInfo interface {
-	// FIXME: get type information here.
+type FreeTrialInfo struct {
+	Start int `json:"start"`
+	End   int `json:"end"`
 }
 
 type SongURLInfo struct {
@@ -16,15 +17,15 @@ type SongURLInfo struct {
 	MD5     string `json:"md5"`
 
 	// Usually 1200, 20 minutes?
-	ExpireIn      int           `json:"expi"`
-	Type          string        `json:"type"`
-	Gain          float64       `json:"gain"`
-	Fee           int           `json:"fee"`
-	Payed         int           `json:"payed"`
-	UnknownUf     interface{}   `json:"uf"`
-	Flag          int           `json:"flag"`
-	CanExtend     bool          `json:"canExtend"`
-	FreeTrialInfo FreeTrialInfo `json:"freeTrialInfo"`
+	ExpireIn      int            `json:"expi"`
+	Type          string         `json:"type"`
+	Gain          float64        `json:"gain"`
+	Fee           int            `json:"fee"`
+	Payed         int            `json:"payed"`
+	UnknownUf     interface{}    `json:"uf"`
+	Flag          int            `json:"flag"`
+	CanExtend     bool           `json:"canExtend"`
+	FreeTrialInfo *FreeTrialInfo `json:"freeTrialInfo"`
 
 	// e.g. "standard"
 	Level string `json:"level"`
