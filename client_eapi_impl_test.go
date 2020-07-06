@@ -1,10 +1,10 @@
 // +build integration
 
-package NetEaseAPI
+package main
 
 import (
 	"fmt"
-	"github.com/JixunMoe/netease-api-go/NetEaseAPI/search"
+	"github.com/JixunMoe/netease-api-go/search"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
