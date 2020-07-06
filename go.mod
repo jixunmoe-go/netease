@@ -1,4 +1,4 @@
-module github.com/JixunMoe-go/NetEaseAPI
+module github.com/jixunmoe-go/netease
 
 go 1.14
 

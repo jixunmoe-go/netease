@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	"github.com/JixunMoe-go/NetEaseAPI/crypto"
+	"github.com/jixunmoe-go/netease/crypto"
 	"log"
 	"os"
 )

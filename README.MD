@@ -1,21 +1,21 @@
 # 网易云音乐 API
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Go Version](https://img.shields.io/github/go-mod/go-version/JixunMoe-go/NetEaseAPI)
-[![GoDoc](https://godoc.org/github.com/JixunMoe-go/NetEaseAPI?status.svg)](https://pkg.go.dev/github.com/JixunMoe-go/NetEaseAPI?tab=doc)
+![Go Version](https://img.shields.io/github/go-mod/go-version/jixunmoe-go/netease)
+[![GoDoc](https://godoc.org/github.com/jixunmoe-go/netease?status.svg)](https://pkg.go.dev/github.com/jixunmoe-go/netease?tab=doc)
 
 一个很简单的 POC package。
 
 ## 使用
 
-直接引入即可 (应该)；如果需要手动安装，执行 `go get -u github.com/JixunMoe-go/NetEaseAPI`。
+直接引入即可 (应该)；如果需要手动安装，执行 `go get -u github.com/jixunmoe-go/netease`。
 
 ```
 package main
 
 import (
 	"fmt"
-	"github.com/JixunMoe-go/NetEaseAPI"
+	"github.com/jixunmoe-go/netease"
 )
 
 func main() {

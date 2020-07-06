@@ -4,7 +4,7 @@ package NetEaseAPI
 
 import (
 	"fmt"
-	"github.com/JixunMoe-go/NetEaseAPI/search"
+	"github.com/jixunmoe-go/netease/search"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

@@ -3,7 +3,7 @@ package NetEaseAPI
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/JixunMoe-go/NetEaseAPI/crypto"
+	"github.com/jixunmoe-go/netease/crypto"
 	"net/http"
 	"net/url"
 )

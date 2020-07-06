@@ -1,6 +1,6 @@
 package NetEaseAPI
 
-import "github.com/JixunMoe-go/NetEaseAPI/util/ip"
+import "github.com/jixunmoe-go/netease/util/ip"
 
 // BeiJing China Telecom IP (ISP)
 // 106.37.0.0 - 106.39.255.255

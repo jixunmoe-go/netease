@@ -3,8 +3,8 @@ package NetEaseAPI
 import (
 	"errors"
 	"fmt"
-	"github.com/JixunMoe-go/NetEaseAPI/search"
-	"github.com/JixunMoe-go/NetEaseAPI/types"
+	"github.com/jixunmoe-go/netease/search"
+	"github.com/jixunmoe-go/netease/types"
 	"strings"
 )
 
