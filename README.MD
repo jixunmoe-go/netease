@@ -30,6 +30,8 @@ func main() {
 }
 ```
 
+[Go Playground](https://play.golang.org/p/HZxVi1G01OD)
+
 ## 致谢
 
 本项目参考了以下仓库里的代码与内容：
