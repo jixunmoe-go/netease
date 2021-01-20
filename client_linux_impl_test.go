@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestSongInfo_Linux(t *testing.T) {
+func TestSongInfoUsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.Song(38019092, 5308028)
 
@@ -21,7 +21,7 @@ func TestSongInfo_Linux(t *testing.T) {
 	assert.Equal(t, "My Soul", resp.Songs[1].Name, "Second song should be 'My Soul'")
 }
 
-func TestPlaylist_Linux(t *testing.T) {
+func TestPlaylistUsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.Playlist(3094646186)
 	assert.Nil(t, err)
@@ -30,7 +30,7 @@ func TestPlaylist_Linux(t *testing.T) {
 	fmt.Printf("total tracks: %d\n", len(resp.Playlist.Tracks))
 }
 
-func TestAlbum_Linux(t *testing.T) {
+func TestAlbumUsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.Album(83351855)
 	assert.Nil(t, err)
@@ -38,7 +38,7 @@ func TestAlbum_Linux(t *testing.T) {
 	assert.Equal(t, "蔡徐坤", resp.Album.Artist.Name, "The album should belong to cxk")
 }
 
-func TestSongURL_Linux(t *testing.T) {
+func TestSongURLUsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.SongURL(320000, 38019092, 5308028)
 	assert.Nil(t, err)
@@ -47,7 +47,7 @@ func TestSongURL_Linux(t *testing.T) {
 	assert.Equal(t, 5308028, resp.Data[1].ID)
 }
 
-func TestSongURLv1_Linux(t *testing.T) {
+func TestSongURLv1UsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.SongURLv1("exhigh", "mp3", 38019092, 5308028)
 	assert.Nil(t, err)
@@ -56,7 +56,7 @@ func TestSongURLv1_Linux(t *testing.T) {
 	assert.Equal(t, 5308028, resp.Data[1].ID)
 }
 
-func TestArtist_Linux(t *testing.T) {
+func TestArtistUsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.Artist(33184, 50)
 	assert.Nil(t, err)
@@ -64,7 +64,7 @@ func TestArtist_Linux(t *testing.T) {
 	assert.Equal(t, "Ed Sheeran", resp.Artist.Name, "The artist should be Ed Sheeran")
 }
 
-func TestLyric_Linux(t *testing.T) {
+func TestLyricUsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.Lyric(443277477)
 	assert.Nil(t, err)
@@ -72,7 +72,7 @@ func TestLyric_Linux(t *testing.T) {
 	assert.Equal(t, byte('['), resp.Lyrics.LRC[0])
 }
 
-func TestSearch_Linux(t *testing.T) {
+func TestSearchUsingLinuxAPI(t *testing.T) {
 	api := New()
 	resp, err := api.Search("蔡徐坤", search.Artist, 0, 10)
 	assert.Nil(t, err)

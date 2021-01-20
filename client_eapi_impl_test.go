@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestSongInfo_EAPI(t *testing.T) {
+func TestSongInfoUsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.Song(38019092, 5308028)
@@ -22,7 +22,7 @@ func TestSongInfo_EAPI(t *testing.T) {
 	assert.Equal(t, "My Soul", resp.Songs[1].Name, "Second song should be 'My Soul'")
 }
 
-func TestPlaylist_EAPI(t *testing.T) {
+func TestPlaylistUsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.Playlist(3094646186)
@@ -32,7 +32,7 @@ func TestPlaylist_EAPI(t *testing.T) {
 	fmt.Printf("total tracks: %d\n", len(resp.Playlist.Tracks))
 }
 
-func TestAlbum_EAPI(t *testing.T) {
+func TestAlbumUsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.Album(83351855)
@@ -41,7 +41,7 @@ func TestAlbum_EAPI(t *testing.T) {
 	assert.Equal(t, "蔡徐坤", resp.Album.Artist.Name, "The album should belong to cxk")
 }
 
-func TestSongURL_EAPI(t *testing.T) {
+func TestSongURLUsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.SongURL(320000, 38019092, 5308028)
@@ -51,7 +51,7 @@ func TestSongURL_EAPI(t *testing.T) {
 	assert.Equal(t, 5308028, resp.Data[1].ID)
 }
 
-func TestSongURLv1_EAPI(t *testing.T) {
+func TestSongURLv1UsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.SongURLv1("exhigh", "mp3", 38019092, 5308028)
@@ -61,7 +61,7 @@ func TestSongURLv1_EAPI(t *testing.T) {
 	assert.Equal(t, 5308028, resp.Data[1].ID)
 }
 
-func TestArtist_EAPI(t *testing.T) {
+func TestArtistUsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.Artist(33184, 50)
@@ -70,7 +70,7 @@ func TestArtist_EAPI(t *testing.T) {
 	assert.Equal(t, "Ed Sheeran", resp.Artist.Name, "The artist should be Ed Sheeran")
 }
 
-func TestLyric_EAPI(t *testing.T) {
+func TestLyricUsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.Lyric(443277477)
@@ -79,7 +79,7 @@ func TestLyric_EAPI(t *testing.T) {
 	assert.Equal(t, byte('['), resp.Lyrics.LRC[0])
 }
 
-func TestSearch_EAPI(t *testing.T) {
+func TestSearchUsingEAPI(t *testing.T) {
 	api := New()
 	api.UseEAPIClient()
 	resp, err := api.Search("蔡徐坤", search.Artist, 0, 10)

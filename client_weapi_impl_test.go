@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-func TestSongInfo_WEAPI(t *testing.T) {
+func TestSongInfoUsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.Song(38019092, 5308028)
@@ -22,7 +22,7 @@ func TestSongInfo_WEAPI(t *testing.T) {
 	assert.Equal(t, "My Soul", resp.Songs[1].Name, "Second song should be 'My Soul'")
 }
 
-func TestPlaylist_WEAPI(t *testing.T) {
+func TestPlaylistUsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.Playlist(3094646186)
@@ -32,7 +32,7 @@ func TestPlaylist_WEAPI(t *testing.T) {
 	fmt.Printf("total tracks: %d\n", len(resp.Playlist.Tracks))
 }
 
-func TestAlbum_WEAPI(t *testing.T) {
+func TestAlbumUsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.Album(83351855)
@@ -41,7 +41,7 @@ func TestAlbum_WEAPI(t *testing.T) {
 	assert.Equal(t, "蔡徐坤", resp.Album.Artist.Name, "The album should belong to cxk")
 }
 
-func TestSongURL_WEAPI(t *testing.T) {
+func TestSongURLUsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.SongURL(320000, 38019092, 5308028)
@@ -51,7 +51,7 @@ func TestSongURL_WEAPI(t *testing.T) {
 	assert.Equal(t, 5308028, resp.Data[1].ID)
 }
 
-func TestSongURLv1_WEAPI(t *testing.T) {
+func TestSongURLv1UsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.SongURLv1("standard", "aac", 38019092, 5308028)
@@ -62,7 +62,7 @@ func TestSongURLv1_WEAPI(t *testing.T) {
 	assert.Equal(t, 5308028, resp.Data[1].ID)
 }
 
-func TestArtist_WEAPI(t *testing.T) {
+func TestArtistUsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.Artist(33184, 50)
@@ -71,7 +71,7 @@ func TestArtist_WEAPI(t *testing.T) {
 	assert.Equal(t, "Ed Sheeran", resp.Artist.Name, "The artist should be Ed Sheeran")
 }
 
-func TestLyric_WEAPI(t *testing.T) {
+func TestLyricUsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.Lyric(443277477)
@@ -80,7 +80,7 @@ func TestLyric_WEAPI(t *testing.T) {
 	assert.Equal(t, byte('['), resp.Lyrics.LRC[0])
 }
 
-func TestSearch_WEAPI(t *testing.T) {
+func TestSearchUsingWEAPI(t *testing.T) {
 	api := New()
 	api.UseWEAPIClient()
 	resp, err := api.Search("蔡徐坤", search.Artist, 0, 10)
